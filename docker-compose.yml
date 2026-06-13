@@ -1,0 +1,22 @@
+# Local development helper — spins up Postgres for the app.
+# The app itself runs with `npm run dev`. For a full containerized run, build the Dockerfile.
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ledgerline
+      POSTGRES_PASSWORD: ledgerline
+      POSTGRES_DB: ledgerline
+    ports:
+      - "5432:5432"
+    volumes:
+      - ledgerline_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ledgerline"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  ledgerline_pgdata:

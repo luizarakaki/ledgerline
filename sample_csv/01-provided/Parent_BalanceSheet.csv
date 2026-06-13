@@ -1,0 +1,14 @@
+Account,Account Type,Amount
+Cash,Asset,150000
+Accounts Receivable,Asset,95000
+Due from Subsidiary,Asset,10000
+Inventory,Asset,55000
+Investment in Subsidiary,Asset,100000
+Property Plant & Equipment,Asset,220000
+Accumulated Depreciation,Asset,-50000
+Accounts Payable,Liability,-40000
+Accrued Expenses,Liability,-18000
+Long-term Debt,Liability,-110000
+Common Stock,Equity,-150000
+Retained Earnings,Equity,-154000
+Current Year Net Income,Equity,-108000

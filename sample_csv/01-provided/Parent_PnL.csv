@@ -1,0 +1,11 @@
+Account,Account Type,Amount
+Revenue - External Customers,Revenue,600000
+Subsidiary Revenue,Revenue,25000
+Cost of Goods Sold,COGS,-220000
+Salaries & Wages,Operating Expense,-180000
+Rent Expense,Operating Expense,-42000
+Software & Subscriptions,Operating Expense,-24000
+Marketing Expense,Operating Expense,-30000
+Depreciation Expense,Operating Expense,-15000
+Interest Expense,Other Expense,-6000
+Net Income,Net Income,108000

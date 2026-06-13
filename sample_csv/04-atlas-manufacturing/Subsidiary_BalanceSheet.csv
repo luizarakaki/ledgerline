@@ -1,0 +1,13 @@
+Account,Account Type,Amount
+Cash,Asset,95000
+Accounts Receivable,Asset,120000
+Inventory,Asset,90000
+Property Plant & Equipment,Asset,280000
+Accumulated Depreciation,Asset,-60000
+Accounts Payable,Liability,-70000
+Due to Parent,Liability,-30000
+Accrued Expenses,Liability,-22500
+Long-term Debt,Liability,-130000
+Common Stock,Equity,-250000
+Retained Earnings,Equity,-5000
+Current Year Net Income,Equity,-17500

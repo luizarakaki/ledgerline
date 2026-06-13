@@ -1,0 +1,11 @@
+Account,Account Type,Amount
+Revenue - External Customers,Revenue,600000
+Cost of Goods Sold,COGS,-260000
+Parent Company Fees,Operating Expense,-60000
+Salaries & Wages,Operating Expense,-150000
+Rent Expense,Operating Expense,-55000
+Software & Subscriptions,Operating Expense,-18000
+Marketing Expense,Operating Expense,-30000
+Depreciation Expense,Operating Expense,-16000
+Interest Income,Other Income,3000
+Net Income,Net Income,14000
