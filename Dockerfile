@@ -29,7 +29,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends python3 make g+
 COPY package.json package-lock.json* ./
 COPY api/package.json ./api/
 COPY web/package.json ./web/
-RUN npm install --omit=dev --workspace=api
+# npm workspaces hoist deps to the root node_modules, so api/node_modules may
+# not exist. Create it so the COPY in the runner stage never fails; Node still
+# resolves the hoisted packages from /app/node_modules at runtime.
+RUN npm install --omit=dev --workspace=api && mkdir -p api/node_modules
 
 # ---------- runner ----------
 FROM base AS runner
