@@ -1,0 +1,19 @@
+Account,Account Type,Amount
+Cash & Cash Equivalents,Asset,500000
+Short-term Investments,Asset,180000
+Accounts Receivable,Asset,285000
+Intercompany Receivable,Asset,22000
+Prepaid Expenses,Asset,35000
+Equity Investment in Affiliate,Asset,150000
+Property & Equipment,Asset,260000
+Accumulated Depreciation,Asset,-60000
+Goodwill,Asset,90000
+Intangible Assets,Asset,75000
+Accounts Payable,Liability,-95000
+Deferred Revenue,Liability,-180000
+Accrued Compensation,Liability,-60000
+Long-term Debt,Liability,-220000
+Common Stock,Equity,-250000
+Additional Paid-in Capital,Equity,-120000
+Retained Earnings,Equity,-200000
+Current Year Net Income,Equity,-412000

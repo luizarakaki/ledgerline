@@ -1,0 +1,10 @@
+Account,Account Type,Amount
+Production Revenue,Revenue,360000
+Cost of Services,COGS,-120000
+Parent Company Fees,Operating Expense,-50000
+Salaries & Wages,Operating Expense,-110000
+Rent Expense,Operating Expense,-30000
+Marketing Expense,Operating Expense,-18000
+Depreciation Expense,Operating Expense,-12000
+Interest Income,Other Income,2000
+Net Income,Net Income,22000

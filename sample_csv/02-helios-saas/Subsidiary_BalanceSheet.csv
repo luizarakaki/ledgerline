@@ -1,0 +1,14 @@
+Account,Account Type,Amount
+Cash & Cash Equivalents,Asset,210000
+Accounts Receivable,Asset,140000
+Prepaid Expenses,Asset,18000
+Property & Equipment,Asset,160000
+Accumulated Depreciation,Asset,-39000
+Accounts Payable,Liability,-42000
+Intercompany Payable,Liability,-22000
+Deferred Revenue,Liability,-65000
+Accrued Compensation,Liability,-28000
+Long-term Debt,Liability,-80000
+Share Capital,Equity,-150000
+Retained Earnings,Equity,-60000
+Current Year Net Income,Equity,-42000

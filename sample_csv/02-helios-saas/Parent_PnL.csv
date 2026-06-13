@@ -1,0 +1,13 @@
+Account,Account Type,Amount
+Subscription Revenue,Revenue,1100000
+Professional Services Revenue,Revenue,150000
+Management Fee Income,Revenue,48000
+Cost of Revenue,COGS,-260000
+Research & Development,Operating Expense,-220000
+Sales & Marketing,Operating Expense,-180000
+General & Administrative,Operating Expense,-120000
+Hosting & Infrastructure,Operating Expense,-70000
+Amortization of Intangibles,Operating Expense,-30000
+Interest Income,Other Income,8000
+Interest Expense,Other Expense,-14000
+Net Income,Net Income,412000

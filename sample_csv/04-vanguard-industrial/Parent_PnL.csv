@@ -1,0 +1,15 @@
+Account,Account Type,Amount
+Product Revenue,Revenue,3200000
+Aftermarket & Service Revenue,Revenue,450000
+Intercompany Revenue,Revenue,90000
+Cost of Goods Sold,COGS,-1850000
+Direct Labor,COGS,-360000
+Salaries & Wages,Operating Expense,-480000
+Selling Expenses,Operating Expense,-220000
+General & Administrative,Operating Expense,-180000
+Rent & Utilities,Operating Expense,-110000
+Depreciation & Amortization,Operating Expense,-160000
+Interest Income,Other Income,12000
+Interest Expense,Other Expense,-65000
+Loss on Disposal,Other Expense,-8000
+Net Income,Net Income,319000

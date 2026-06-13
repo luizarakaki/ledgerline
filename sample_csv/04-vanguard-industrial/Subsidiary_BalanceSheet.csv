@@ -1,0 +1,16 @@
+Account,Account Type,Amount
+Cash,Asset,90000
+Accounts Receivable,Asset,160000
+Raw Materials Inventory,Asset,110000
+Work in Progress,Asset,70000
+Finished Goods Inventory,Asset,130000
+Machinery & Equipment,Asset,520000
+Accumulated Depreciation,Asset,-140000
+Accounts Payable,Liability,-130000
+Loan from Parent,Liability,-50000
+Accrued Liabilities,Liability,-60000
+Notes Payable,Liability,-90000
+Long-term Debt,Liability,-340000
+Capital Stock,Equity,-300000
+Retained Earnings,Equity,-38000
+Current Year Net Income,Equity,68000

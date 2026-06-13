@@ -1,0 +1,10 @@
+Line Item,Category,Balance
+Net Sales,Revenue,"$2,400,000"
+Service Fee Income,Revenue,"$55,000"
+Cost of Sales,COGS,"($1,080,000)"
+Store Salaries,Operating Expense,"($420,000)"
+Occupancy & Rent,Operating Expense,"($180,000)"
+Advertising,Operating Expense,"($140,000)"
+Distribution & Logistics,Operating Expense,"($95,000)"
+Depreciation,Operating Expense,"($70,000)"
+Interest Expense,Other Expense,"($32,000)"

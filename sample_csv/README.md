@@ -1,7 +1,7 @@
 # Sample data
 
-Four complete sets of consolidation inputs, one per subdirectory. Each set has
-the four CSVs the app expects:
+Five sets of consolidation inputs, one per subdirectory. Each set has the four
+CSVs the app expects:
 
 ```
 Parent_PnL.csv
@@ -11,24 +11,33 @@ Subsidiary_BalanceSheet.csv
 ```
 
 Upload all four from a set into the app's drop-zones (or drag the folder's
-files in) and **Run consolidation**. Every set is constructed so each entity's
-balance sheet balances on its own and the three intercompany pairs match
-exactly, so the consolidated balance sheet balances with no validation warnings.
+files in) and **Run consolidation**.
 
-Each set exercises the same three eliminations:
+## Nothing is hardcoded
 
-- **P&L** — parent's *Subsidiary Revenue* ↔ subsidiary's *Parent Company Fees*
-- **Balance sheet** — *Due from Subsidiary* ↔ *Due to Parent*
-- **Balance sheet** — parent's *Investment in Subsidiary* ↔ subsidiary's *Common Stock*
+The sets deliberately differ in account names, number of rows, statement
+structure, and even CSV formatting — to show the engine matches on **account
+type and keywords**, not fixed labels. The intercompany eliminations are
+detected from many naming variants:
+
+| Elimination | Variants used across the sets |
+| ----------- | ----------------------------- |
+| P&L intercompany | *Subsidiary Revenue* ↔ *Parent Company Fees*; *Management Fee Income* ↔ *Management Fee*; *Service Fee Income* ↔ *Parent Service Fees*; *Intercompany Revenue* ↔ *Intercompany Charges* |
+| Intercompany balance | *Due from/to Subsidiary/Parent*; *Intercompany Receivable/Payable*; *Due from Affiliate / Due to Parent*; *Loan to Subsidiary / Loan from Parent* |
+| Equity investment | *Investment in Subsidiary* ↔ *Common Stock*; *Equity Investment in Affiliate* ↔ *Share Capital*; *Investment in Subsidiary* ↔ *Capital Stock* |
+
+For a clean, balanced result a set only needs: each entity's own balance sheet
+to balance, and the three intercompany pairs to be equal-and-opposite.
 
 ## The sets
 
-| Folder | Scenario | Net income (consolidated) | Total assets (consolidated) |
-| ------ | -------- | -------------------------: | --------------------------: |
-| `01-provided` | The original take-home sample data (**this is the provided set**) | $133,500 | $732,000 |
-| `02-nimbus-software` | Nimbus Holdings + Stratus Labs (software) | $258,000 | $1,035,000 |
-| `03-meridian-retail` | Meridian Retail + Coastline Goods (retail) | $206,000 | $1,350,000 |
-| `04-atlas-manufacturing` | Atlas Manufacturing + Forge Components (manufacturing) | $237,500 | $1,755,000 |
+| Folder | Scenario | What it exercises | NI (consol.) | Assets (consol.) |
+| ------ | -------- | ----------------- | -----------: | ---------------: |
+| `01-provided` | The original take-home sample data (**this is the provided set**) | Baseline | $133,500 | $732,000 |
+| `02-helios-saas` | Helios SaaS + Lumen Analytics | Different account names, more line items (deferred revenue, goodwill, R&D), management-fee + intercompany-receivable + equity-investment-in-affiliate variants | $454,000 | $1,854,000 |
+| `03-brightline-retail` | Brightline Retail + Cobalt Outfitters | **Alternative CSV format** — `Line Item, Category, Balance` headers, `$` signs, comma thousands separators, parentheses-negatives | $531,000 | $2,300,000 |
+| `04-vanguard-industrial` | Vanguard Industrial + Ironworks Fabrication | Larger statements (two COGS lines, deferred tax, WIP inventory), loan-to/from + intercompany-revenue variants, and a **subsidiary running at a loss** | $251,000 | $3,240,000 |
+| `05-pioneer-media-warning` | Pioneer Media + Echo Studios | **Validation demo** — intercompany P&L doesn't fully net ($60k vs $50k), so the engine eliminates the lesser and flags the $10k residual; the balance sheet still balances | $213,000 | $835,000 |
 
-Account names vary across sets (and nothing is hardcoded to a specific file) —
-matching is keyword-based, so the same eliminations are detected in every set.
+Every set balances (consolidated balance check passes). Sets 01–04 produce no
+warnings; set 05 produces a single warning to demonstrate the validation panel.

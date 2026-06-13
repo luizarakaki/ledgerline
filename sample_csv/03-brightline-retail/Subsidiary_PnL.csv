@@ -1,0 +1,9 @@
+Line Item,Category,Balance
+Net Sales,Revenue,"$880,000"
+Cost of Sales,COGS,"($410,000)"
+Parent Service Fees,Operating Expense,"($55,000)"
+Store Salaries,Operating Expense,"($180,000)"
+Occupancy & Rent,Operating Expense,"($72,000)"
+Advertising,Operating Expense,"($48,000)"
+Depreciation,Operating Expense,"($26,000)"
+Interest Income,Other Income,"$4,000"

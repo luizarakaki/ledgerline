@@ -1,0 +1,13 @@
+Line Item,Category,Balance
+Cash,Asset,"$150,000"
+Accounts Receivable,Asset,"$98,000"
+Merchandise Inventory,Asset,"$220,000"
+Property & Equipment,Asset,"$310,000"
+Accumulated Depreciation,Asset,"($78,000)"
+Accounts Payable,Liability,"($110,000)"
+Due to Parent,Liability,"($28,000)"
+Accrued Expenses,Liability,"($34,000)"
+Long-term Debt,Liability,"($150,000)"
+Common Stock,Equity,"($200,000)"
+Retained Earnings,Equity,"($85,000)"
+Current Year Net Income,Equity,"($93,000)"

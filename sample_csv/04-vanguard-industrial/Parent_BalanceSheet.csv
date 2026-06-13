@@ -1,0 +1,20 @@
+Account,Account Type,Amount
+Cash,Asset,420000
+Accounts Receivable,Asset,380000
+Loan to Subsidiary,Asset,50000
+Raw Materials Inventory,Asset,180000
+Work in Progress,Asset,120000
+Finished Goods Inventory,Asset,240000
+Investment in Subsidiary,Asset,300000
+Land,Asset,200000
+Buildings & Machinery,Asset,1100000
+Accumulated Depreciation,Asset,-340000
+Accounts Payable,Liability,-290000
+Accrued Liabilities,Liability,-120000
+Notes Payable,Liability,-150000
+Deferred Tax Liability,Liability,-90000
+Long-term Debt,Liability,-650000
+Common Stock,Equity,-500000
+Additional Paid-in Capital,Equity,-200000
+Retained Earnings,Equity,-331000
+Current Year Net Income,Equity,-319000
