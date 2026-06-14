@@ -420,6 +420,25 @@ input { font-family: inherit; }
 }
 .view-toggle button.on { background: var(--surface); color: var(--accent-ink); box-shadow: var(--shadow-sm); }
 
+/* download menu */
+.dl-menu { position: relative; }
+.dl-menu .btn-ghost { gap: 6px; }
+.dl-dropdown {
+  position: absolute; right: 0; top: calc(100% + 8px); z-index: 70;
+  min-width: 184px; background: var(--surface);
+  border: 1px solid var(--border); border-radius: 12px; box-shadow: var(--shadow-lg);
+  overflow: hidden; padding: 5px;
+}
+.dl-item {
+  display: flex; align-items: center; gap: 10px; width: 100%;
+  background: transparent; border: none; border-radius: 8px; padding: 10px 12px;
+  font-size: 14px; font-weight: 600; color: var(--ink-2); text-align: left;
+  transition: background .15s, color .15s;
+}
+.dl-item svg { color: var(--muted); }
+.dl-item:hover { background: var(--surface-2); color: var(--ink); }
+.dl-item:hover svg { color: var(--accent-ink); }
+
 /* validation */
 .valid-panel { border-radius: var(--radius); margin-bottom: 26px; border: 1px solid var(--border); overflow: hidden; }
 .valid-clean { display: flex; align-items: center; gap: 11px; padding: 14px 18px; background: var(--pos-soft); border-color: oklch(0.86 0.06 155); color: var(--pos); font-size: 14px; }

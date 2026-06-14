@@ -2,7 +2,10 @@
 import { useMemo, useState } from "react";
 import { Icons } from "@/components/icons";
 import { Amount, fmtMoney, NotePopover } from "@/components/primitives";
+import { downloadTables, slugify, type Cell, type SheetData } from "@/lib/export";
 import type { ConsolidationResult, Elimination, Warning, WorksheetRow } from "@/lib/types";
+
+const WORKSHEET_HEADER = ["Account", "Parent", "Subsidiary", "Eliminations", "Consolidated"];
 
 interface ResultScreenProps {
   result: ConsolidationResult;
@@ -12,6 +15,7 @@ interface ResultScreenProps {
 
 export function ResultScreen({ result, title, onBack }: ResultScreenProps) {
   const [view, setView] = useState<"worksheet" | "statements">("worksheet");
+  const [dlOpen, setDlOpen] = useState(false);
   const elimById = useMemo(() => {
     const m: Record<string, Elimination> = {};
     (result.eliminations || []).forEach((e) => (m[e.id] = e));
@@ -21,6 +25,18 @@ export function ResultScreen({ result, title, onBack }: ResultScreenProps) {
   const errors = result.warnings.filter((w) => w.level === "error");
   const warns = result.warnings.filter((w) => w.level === "warn");
   const infos = result.warnings.filter((w) => w.level === "info");
+
+  // Export always uses the full worksheet (Parent | Subsidiary | Eliminations |
+  // Consolidated), one file per statement, regardless of the on-screen view.
+  const exportAs = (format: "csv" | "xlsx") => {
+    const base = slugify(title);
+    const sheets: SheetData[] = [
+      { filename: `${base}-profit-and-loss`, header: WORKSHEET_HEADER, rows: toWorksheetMatrix(buildPnlRows(result.pnl)) },
+      { filename: `${base}-balance-sheet`, header: WORKSHEET_HEADER, rows: toWorksheetMatrix(buildBsRows(result.bs)) },
+    ];
+    void downloadTables(format, sheets);
+    setDlOpen(false);
+  };
 
   return (
     <div className="res-screen fade-in">
@@ -38,6 +54,24 @@ export function ResultScreen({ result, title, onBack }: ResultScreenProps) {
         </div>
         <div className="res-head-right">
           <BalanceBadge result={result} />
+          <div className="dl-menu">
+            <button className="btn btn-ghost btn-sm" onClick={() => setDlOpen((o) => !o)} aria-haspopup="menu" aria-expanded={dlOpen}>
+              <Icons.download size={15} /> Download <Icons.chevron size={14} />
+            </button>
+            {dlOpen && (
+              <>
+                <div className="menu-backdrop" onClick={() => setDlOpen(false)} />
+                <div className="dl-dropdown fade-in" role="menu">
+                  <button className="dl-item" role="menuitem" onClick={() => exportAs("csv")}>
+                    <Icons.doc size={15} /> CSV
+                  </button>
+                  <button className="dl-item" role="menuitem" onClick={() => exportAs("xlsx")}>
+                    <Icons.table size={15} /> Excel (.xlsx)
+                  </button>
+                </div>
+              </>
+            )}
+          </div>
           <div className="view-toggle" role="tablist">
             <button role="tab" className={view === "worksheet" ? "on" : ""} onClick={() => setView("worksheet")}>
               <Icons.table size={15} /> Worksheet
@@ -229,6 +263,15 @@ function buildBsRows(bs: ConsolidationResult["bs"]): DisplayRow[] {
   out.push(subtotalRow("Total equity", eq));
   out.push(totalRow("Total liabilities & equity", [...liab, ...eq]));
   return out;
+}
+
+/** Flatten worksheet display rows into an export matrix (raw numeric cells). */
+function toWorksheetMatrix(rows: DisplayRow[]): Cell[][] {
+  return rows.map((r) =>
+    r.kind === "section"
+      ? [r.label, null, null, null, null]
+      : [r.label, r.parent ?? null, r.sub ?? null, r.elim ?? null, r.consolidated ?? null],
+  );
 }
 
 /* ================= worksheet table ================= */
